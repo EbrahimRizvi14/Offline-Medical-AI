@@ -176,7 +176,7 @@ if prompt := st.chat_input("Ask a question about your PDF..."):
                     if s.get("section"):
                         sec = s["section"][:60] + ("..." if len(s["section"]) > 60 else "")
                         line += f" · *{sec}*"
-                    line += f" · `{s['type']}` · relevance: {s['score']}"
+                    # line += f" · `{s['type']}` · relevance: {s['score']}"
                     source_lines.append(line)
                 
                 full_answer = answer + "".join(source_lines)

@@ -239,7 +239,6 @@ class RAGPipeline:
                 "page": chunk.get("page_number"),
                 "section": chunk.get("section_heading"),
                 "type": chunk.get("type"),
-                "score": round(score, 3),
             })
 
         return answer, sources

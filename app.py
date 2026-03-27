@@ -80,8 +80,8 @@ with st.sidebar:
     uploaded_file = st.file_uploader("Upload PDF", type=["pdf"])
     
     st.markdown("### Model Configuration")
-    llm_model = st.selectbox("LLM Model", [DEFAULT_LLM_MODEL, "llama3-70b-8192", "mixtral-8x7b-32768"], index=0)
-    embed_model = st.text_input("Embedding Model", value=DEFAULT_EMBED_MODEL)
+    # llm_model = st.selectbox("LLM Model", [DEFAULT_LLM_MODEL, "llama3-70b-8192", "mixtral-8x7b-32768"], index=0)
+    # embed_model = st.text_input("Embedding Model", value=DEFAULT_EMBED_MODEL)
     top_k = st.slider("Top K Chunks", min_value=1, max_value=10, value=3)
     use_ocr = st.checkbox("Enable OCR", value=True)
     
@@ -111,8 +111,8 @@ with st.sidebar:
                     st.toast("Creating embeddings...")
                     rag = RAGPipeline(
                         groq_api_key=st.session_state.api_key,
-                        embed_model=embed_model,
-                        llm_model=llm_model,
+                        embed_model=DEFAULT_EMBED_MODEL,
+                        llm_model=DEFAULT_LLM_MODEL,
                     )
                     rag.load_chunks(json_path)
                     

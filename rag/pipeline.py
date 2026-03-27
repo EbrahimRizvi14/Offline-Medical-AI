@@ -250,7 +250,7 @@ class RAGPipeline:
         for i, (chunk, score) in enumerate(results, 1):
             header = (
                 f"[Chunk {i} | Page {chunk.get('page_number', '?')} | "
-                f"Type: {chunk.get('type', '?')} | Relevance: {score:.2f}]"
+                f"Type: {chunk.get('type', '?')}]"
             )
             body = []
             if chunk.get("section_heading"):
